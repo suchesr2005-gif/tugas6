@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+</head>
+<body>
+<a href="/admin">admin</a> 
+
+
+<h1>Halaman Admin</h1>
+
+<p>current user {{ session.get("user", False) }}</p>
+<a href="/logout">Log out</a>
+</body>
+</html>
