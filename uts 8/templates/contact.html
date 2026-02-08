@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .kontak-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Jarak antar baris */
+        margin-top: 20px;
+    }
+    .kontak-item {
+        display: grid;
+        grid-template-columns: 40px 120px 20px 1fr; /* Ikon | Label | : | Isi */
+        align-items: center;
+        font-size: 1.1rem;
+    }
+    .kontak-item i {
+        font-size: 1.3rem;
+    }
+    .label-kontak {
+        font-weight: bold;
+        color: #333;
+    }
+    .titik-dua {
+        text-align: center;
+        font-weight: bold;
+    }
+    .link-kontak {
+        
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .link-kontak:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="card">
+    <h1>Kontak</h1>
+
+    <div class="kontak-container">
+        <div class="kontak-item">
+            <span>📧</span>
+            <span class="label-kontak">Email</span>
+            <span class="titik-dua">:</span>
+            <span>{{ data.email }}</span>
+        </div>
+
+        <div class="kontak-item">
+            <span>📞</span>
+            <span class="label-kontak">Telepon</span>
+            <span class="titik-dua">:</span>
+            <span>{{ data.telepon }}</span>
+        </div>
+
+        <div class="kontak-item">
+            <span>📘</span>
+            <span class="label-kontak">Facebook</span>
+            <span class="titik-dua">:</span>
+            <a href="{{ data.facebook }}" target="_blank" class="link-kontak">
+                Suci.RMDN
+            </a>
+        </div>
+
+        <div class="kontak-item">
+            <span>📸</span>
+            <span class="label-kontak">Instagram</span>
+            <span class="titik-dua">:</span>
+            <a href="{{ data.instagram }}" target="_blank" class="link-kontak">
+                suci._rmdn
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

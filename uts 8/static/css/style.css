@@ -1,0 +1,63 @@
+body {
+    margin:100px;
+    font-family: Arial, sans-serif;
+    background: #ecfdf5;
+}
+
+nav {
+    background: #22c55e;
+    padding: 15px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    padding: 40px;
+    display:flex;
+    justify-content:center;
+}
+
+.card {
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    width:100%;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.center { text-align:center; }
+
+.foto { width:150px; border-radius:50%; margin-bottom:15px; }
+
+.btn {
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    background:#22c55e;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.saya{
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.saya li{
+    list-style: none;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.kontak-list a{
+    color: rgb(120, 19, 252);
+    text-decoration: none;
+}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card center">
+    <img src="{{ url_for('static', filename='img/suci.jpeg') }}" class="foto">
+    <h1>{{ data.nama }}</h1>
+    <h3>{{ data.judul }}</h3>
+    <p>{{ data.email }}</p>
+    <a href="/download" class="btn">Download CV (PDF)</a>
+</div>
+{% endblock %}
