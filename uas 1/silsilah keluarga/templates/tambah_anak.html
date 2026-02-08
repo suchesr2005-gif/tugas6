@@ -1,0 +1,31 @@
+<h2>Tambah Anak</h2>
+
+<form method="post">
+
+  <label>Pasangan Orang Tua:</label><br>
+  <select name="nikah" required>
+    <option value="">-- pilih pasangan --</option>
+    {% for n in nikah %}
+      <option value="{{ n.id }}">
+        {{ n.ayah }} & {{ n.ibu }}
+      </option>
+    {% endfor %}
+  </select>
+
+  <br><br>
+
+  <label>Anak:</label><br>
+  <select name="anak" required>
+    <option value="">-- pilih anak --</option>
+    {% for o in orang %}
+      <option value="{{ o.id }}">{{ o.nama }}</option>
+    {% endfor %}
+  </select>
+
+  <br><br>
+
+  <button type="submit">Simpan</button>
+</form>
+
+<br>
+<a href="/tambah">⬅ Kembali</a>

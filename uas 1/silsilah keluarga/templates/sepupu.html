@@ -1,0 +1,17 @@
+<h2>Sepupu {{ level }} Kali</h2>
+<p>Dari: <b>{{ orang.nama }}</b></p>
+
+<hr>
+
+{% if sepupu %}
+  <ul>
+    {% for s in sepupu %}
+      <li>{{ s.nama }} ({{ s.jk }})</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Tidak ada data</p>
+{% endif %}
+
+<hr>
+<a href="/orang/{{ orang.id }}">⬅ Kembali ke Detail</a>

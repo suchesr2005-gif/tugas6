@@ -1,0 +1,24 @@
+<h2>Daftar Keluarga</h2>
+
+<form method="get" style="margin-bottom:10px">
+  <input 
+    type="text" 
+    name="q" 
+    placeholder="Cari nama..." 
+    value="{{ q }}"
+  >
+  <button type="submit">Cari</button>
+
+  {% if q %}
+    <a href="/" style="margin-left:8px">Reset</a>
+  {% endif %}
+</form>
+
+<ol>{% for o in orang %}
+  <div style="margin:6px 0">
+    <li><a href="/orang/{{ o.id }}">{{ o.nama }}</a></li>
+  </div>
+{% else %}
+  <p>Tidak ada hasil</p>
+{% endfor %}
+</ol>

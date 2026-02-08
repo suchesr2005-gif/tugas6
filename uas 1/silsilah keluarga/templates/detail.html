@@ -1,0 +1,50 @@
+<style>
+  .sepupu a{
+    padding: 5px;
+  }
+</style>
+
+<h2>{{ orang.nama }}</h2>
+<p>Jenis kelamin: {{ orang.jk }}</p>
+
+<hr>
+
+<h3>Orang Tua</h3>
+{% for o in ortu %}
+  <div><a href="/orang/{{ o.id }}">{{ o.nama }}</a></div>
+{% else %}
+  <p>-</p>
+{% endfor %}
+
+<h3>Saudara Kandung</h3>
+{% for s in saudara %}
+  <div><a href="/orang/{{ s.id }}">{{ s.nama }}</a></div>
+{% else %}
+  <p>-</p>
+{% endfor %}
+
+<div class="sepupu">
+<h3>Sepupu</h3>
+<a href="/orang/{{ orang.id }}/sepupu/1">Sepupu 1 Kali</a>
+<a href="/orang/{{ orang.id }}/sepupu/2">Sepupu 2 Kali</a>
+<a href="/orang/{{ orang.id }}/sepupu/3">Sepupu 3 Kali</a>
+</div>
+
+<h3>Pasangan</h3>
+{% for p in pasangan %}
+  <div><a href="/orang/{{ p.id }}">{{ p.nama }}</a></div>
+{% else %}
+  <p>Belum menikah</p>
+{% endfor %}
+
+<h3>Anak</h3>
+{% for a in anak %}
+  <div><a href="/orang/{{ a.id }}">{{ a.nama }}</a></div>
+{% else %}
+  <p>-</p>
+{% endfor %}
+
+<hr>
+
+<hr>
+<a href="/">⬅ Kembali</a>

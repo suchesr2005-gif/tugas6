@@ -1,0 +1,23 @@
+<h2>Tambah Pernikahan</h2>
+
+<form method="post">
+  Suami (Laki-laki):<br>
+  <select name="suami" required>
+    <option value="">-- pilih suami --</option>
+    {% for o in laki %}
+      <option value="{{ o.id }}">{{ o.nama }}</option>
+    {% endfor %}
+  </select><br><br>
+
+  Istri (Perempuan):<br>
+  <select name="istri" required>
+    <option value="">-- pilih istri --</option>
+    {% for o in perempuan %}
+      <option value="{{ o.id }}">{{ o.nama }}</option>
+    {% endfor %}
+  </select><br><br>
+
+  <button>Simpan</button>
+</form>
+
+<a href="/tambah">⬅ Kembali</a>
