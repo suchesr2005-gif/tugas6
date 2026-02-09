@@ -1,0 +1,17 @@
+<h3>DETAIL</h3>
+
+Nama: {{pertemuan[1]}}<br>
+Tanggal: {{pertemuan[2]}}<br>
+Jam: {{pertemuan[3]}} - {{pertemuan[4]}}<br>
+
+<hr>
+
+{% if qr %}
+<a href="/mahasiswa/scan/{{qr[2]}}">
+SCAN PRESENTASI
+</a>
+{% else %}
+<p>Presentasi belum dimulai</p>
+{% endif %}
+
+<a href="/mahasiswa/pertemuan">Kembali</a>

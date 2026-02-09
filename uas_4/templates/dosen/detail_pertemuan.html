@@ -1,0 +1,100 @@
+<h3>DETAIL PERTEMUAN</h3>
+
+Nama: {{ pertemuan[1] }}<br>
+Tanggal: {{ pertemuan[2] }}<br>
+Jam: {{ pertemuan[3] }} - {{ pertemuan[4] }}<br>
+
+<hr>
+
+<button id="btnMulai">Mulai Presentasi</button>
+
+<div id="scan-area" style="display:none; margin-top:20px;">
+    <h4>SCAN QR MAHASISWA</h4>
+    <div id="reader" style="width:300px;"></div>
+    <p id="status"></p>
+</div>
+
+<hr>
+
+<h4>DAFTAR HADIR</h4>
+<ul id="list-hadir">
+{% for h in hadir %}
+    <li>{{ h[0] }} - {{ h[1] }}</li>
+{% endfor %}
+</ul>
+
+<a href="/dosen/pertemuan">Kembali</a>
+
+<!-- ================= SAFE DATA ================= -->
+<script>
+    const PERTEMUAN_ID = {{ pertemuan[0] }};
+</script>
+
+<!-- ================= QR LIB ================= -->
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<script>
+let scanner = null;
+
+document.getElementById("btnMulai").onclick = () => {
+    fetch(`/dosen/pertemuan/${PERTEMUAN_ID}/start`, {
+        method: "POST"
+    })
+    .then(r => r.json())
+    .then(() => {
+        document.getElementById("scan-area").style.display = "block";
+        startCamera();
+    })
+    .catch(() => alert("Gagal memulai presentasi"));
+};
+
+function startCamera() {
+    const status = document.getElementById("status");
+    scanner = new Html5Qrcode("reader");
+
+    Html5Qrcode.getCameras().then(cameras => {
+        if (!cameras.length) {
+            status.innerText = "Kamera tidak ditemukan";
+            return;
+        }
+
+        scanner.start(
+            cameras[0].id,
+            { fps: 10, qrbox: 250 },
+            kode => prosesAbsen(kode),
+            () => {}
+        );
+    })
+    .catch(() => {
+        status.innerText = "Tidak bisa akses kamera";
+    });
+}
+
+function prosesAbsen(nomor) {
+    fetch("/dosen/proses_absen", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            nomor_induk: nomor,
+            pertemuan_id: PERTEMUAN_ID
+        })
+    })
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById("status").innerText = data.message;
+        if (data.status === "success") {
+            refreshHadir();
+        }
+    });
+}
+
+function refreshHadir() {
+    fetch(location.href)
+    .then(r => r.text())
+    .then(html => {
+        const doc = new DOMParser().parseFromString(html, "text/html");
+        document.getElementById("list-hadir").innerHTML =
+            doc.getElementById("list-hadir").innerHTML;
+    });
+}
+</script>

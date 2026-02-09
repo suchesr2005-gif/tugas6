@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+</head>
+<body>
+
+<h1>Dashboard Admin</h1>
+
+<p>Current user: ADMIN</p>
+
+<hr>
+
+<h2>Buat Akun</h2>
+
+<form method="post">
+    <label>Username</label><br>
+    <input name="username" required><br><br>
+
+    <label>Password</label><br>
+    <input name="password" required><br><br>
+
+    <label>Role</label><br>
+    <select name="role">
+        <option value="mahasiswa">Mahasiswa</option>
+        <option value="dosen">Dosen</option>
+        <option value="admin">Admin</option>
+    </select><br><br>
+
+    <label>Nomor Induk</label><br>
+    <input name="nomor"><br><br>
+
+    <button type="submit">Buat Akun</button>
+</form>
+
+<hr>
+
+<h2>Daftar Akun</h2>
+
+{% if not users %}
+<p>Belum ada akun</p>
+{% endif %}
+
+<ul>
+{% for u in users %}
+    <li>
+        {{ u[1] }} - {{ u[2] }}
+        {% if u[2] != "admin" %}
+        | <a href="/admin?hapus={{ u[0] }}"
+             onclick="return confirm('Hapus akun ini?')">
+             Hapus
+          </a>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+
+<a href="/logout">Logout</a>
+
+</body>
+</html>

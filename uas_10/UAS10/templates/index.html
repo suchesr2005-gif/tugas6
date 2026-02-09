@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nilai Rata-Rata Mahasiswa</title>
+</head>
+<body>
+
+    <p><b>NIM:</b> {{nim}}</p>
+    <h2>Input Nilai Mahasiswa</h2>
+
+    <form method="post">
+        <input type="number" name="n1" required><br>
+        <input type="number" name="n2" required><br>
+        <input type="number" name="n3" required><br>
+        <input type="number" name="n4" required><br>
+        <input type="number" name="n5" required><br><br>
+
+        <button type="submit">Proses</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    {% endif %}
+
+    {% if hasil %}
+        <hr>
+        <p><b>Nilai:</b> {{ hasil.nilai }}</p>
+        <p><b>Rata-rata:</b> {{ hasil.rata_rata }}</p>
+        <p><b>Status:</b> {{ hasil.status }}</p>
+    {% endif %}
+</body>
+</html>

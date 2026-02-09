@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <style>
+        
+        body { 
+            
+            font-family: 'Courier New', Courier, monospace; 
+            padding: 20px;
+            margin: 0;
+        }
+
+        pre { 
+            margin: 0; 
+            white-space: pre-wrap; 
+            line-height: 1.5;
+        }
+
+        
+        .terminal-input {
+            background: transparent;
+            border: none;
+            color: rgb(0, 0, 0);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1em;
+            outline: none; 
+            padding: 0;
+            margin: 0;
+            width: 70%; 
+        }
+
+        .form-container {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<pre>
+{% for line in log %}{{ line }}
+{% endfor %}</pre>
+
+<form method="post" id="terminal-form">
+    {{ label }}<input name="input" id="terminal-input" autofocus autocomplete="off">
+</form>
+
+<script>
+    
+    document.addEventListener('click', function() {
+        document.getElementById('terminal-input').focus();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<h1>QR Presentasi</h1>
+
+<img id="qr">
+
+<script>
+setInterval(()=>{
+    document.getElementById("qr").src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data={{token}}&t="+Date.now()
+},1000)
+</script>

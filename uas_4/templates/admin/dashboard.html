@@ -1,0 +1,29 @@
+<h2>ADMIN</h2>
+
+<form method="post" action="/admin/tambah">
+Username <input name="username">
+Password <input name="password">
+Role 
+<select name="role">
+  <option>admin</option>
+  <option>dosen</option>
+  <option>mahasiswa</option>
+</select>
+Nomor Induk <input name="nomor">
+<button>Tambah</button>
+</form>
+
+<hr>
+
+<table border="1">
+<tr><th>Username</th><th>Role</th><th>Nomor</th></tr>
+{% for u in users %}
+<tr>
+<td>{{u[0]}}</td>
+<td>{{u[1]}}</td>
+<td>{{u[2]}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/logout">Logout</a>

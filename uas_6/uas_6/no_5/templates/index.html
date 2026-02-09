@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Nilai</title>
+</head>
+<body>
+
+<h2>Input Data Mahasiswa</h2>
+
+<form method="post">
+    <label>Nama:</label><br>
+    <input type="text" name="nama" required><br><br>
+
+    <label>NIM:</label><br>
+    <input type="text" name="nim" required><br><br>
+
+    <label>Nilai (pisahkan dengan koma)</label><br>
+    <input type="text" name="nilai" placeholder="80,75,90,60" required><br><br>
+
+    <button type="submit">Proses</button>
+</form>
+
+<hr>
+
+{% if nama %}
+<h3>Hasil</h3>
+<p>Nama : {{ nama }}</p>
+<p>NIM  : {{ nim }}</p>
+<p>Nilai: {{ nilai }}</p>
+<p>Nilai Maks : {{ maks }}</p>
+<p>Nilai Min  : {{ mini }}</p>
+{% endif %}
+
+</body>
+</html>

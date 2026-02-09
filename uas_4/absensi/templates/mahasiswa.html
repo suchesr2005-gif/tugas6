@@ -1,0 +1,14 @@
+<h1>Dashboard Mahasiswa</h1>
+<p>Current user: {{session.user[1]}}</p>
+
+<h2>Pertemuan</h2>
+<ul>
+{% for p in pertemuan %}
+<li>
+{{p[1]}} - {{p[2]}}
+<a href="/qr/{{p[0]}}">Tampilkan QR Presentasi</a>
+</li>
+{% endfor %}
+</ul>
+
+<a href="/logout">Logout</a>

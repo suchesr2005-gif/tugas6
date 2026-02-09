@@ -1,0 +1,26 @@
+<h3>PERTEMUAN</h3>
+
+<form method="post">
+Nama <input name="nama">
+Tanggal <input type="date" name="tanggal">
+Masuk <input type="time" name="masuk">
+Keluar <input type="time" name="keluar">
+<button>Tambah</button>
+</form>
+
+<hr>
+
+{% if data %}
+<ul>
+{% for p in data %}
+<li>
+{{p[1]}} - {{p[2]}}
+<a href="/dosen/pertemuan/{{p[0]}}">Detail</a>
+</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>Tidak ada data</p>
+{% endif %}
+
+<a href="/dosen">Kembali</a>

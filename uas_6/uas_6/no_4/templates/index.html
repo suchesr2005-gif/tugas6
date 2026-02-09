@@ -1,0 +1,16 @@
+<h1>Biodata</h1>
+
+Nama: {{nama}} <br>
+Nim : {{nim}} <br><br>
+
+<h1>Daftar Nilai</h1>
+
+<ul>
+    {% for n in nilai %}
+        <li>
+            {{n}}
+        </li>
+    {% endfor %}
+</ul>
+Nilai Maksimum: {{maks}} <br>
+Nilai Minimum : {{mini}}

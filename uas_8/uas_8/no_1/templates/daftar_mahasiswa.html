@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Mahasiswa</title>
+</head>
+<body>
+    <h1><a href="{{ url_for('tambah_mahasiswa') }}">Tambah Mahasiswa Baru</h1></li>
+
+    <h1>Daftar Mahasiswa</h1>
+    <table border="1">
+        <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Nilai</th>
+        </tr>
+        {% for mhs in mahasiswa %}
+        <tr>
+            <td>{{ mhs.nim }}</td>
+            <td>{{ mhs.nama }}</td>
+            <td>{{ mhs.nilai }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{ url_for('index') }}">Kembali ke Beranda</a>
+</body>
+</html>
+

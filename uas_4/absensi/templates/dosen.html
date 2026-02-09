@@ -1,0 +1,18 @@
+<h1>Dosen</h1>
+
+<h2>Tambah Pertemuan</h2>
+<form method="post">
+    Nama <input name="nama"><br>
+    Tanggal <input type="date" name="tanggal"><br>
+    Mulai <input type="time" name="mulai"><br>
+    Selesai <input type="time" name="selesai"><br>
+    <button>Submit</button>
+</form>
+
+<h2>Daftar Pertemuan</h2>
+{% for p in pertemuan %}
+<p>
+{{p[1]}} ({{p[3]}} - {{p[4]}})
+<a href="/detail/{{p[0]}}">Detail</a>
+</p>
+{% endfor %}

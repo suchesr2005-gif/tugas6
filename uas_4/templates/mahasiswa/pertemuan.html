@@ -1,0 +1,12 @@
+<h3>DAFTAR PERTEMUAN</h3>
+
+<ul>
+{% for p in data %}
+<li>
+{{p[1]}} - {{p[2]}}
+<a href="/mahasiswa/pertemuan/{{p[0]}}">Detail</a>
+</li>
+{% endfor %}
+</ul>
+
+<a href="/mahasiswa">Kembali</a>
